@@ -1,0 +1,46 @@
+2026/10/28 19:06:51 >  Using KDC(s):
+2026/10/28 19:06:51 >  	192.168.12.100:88
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 phillip.green@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 claire.ross@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 administrator@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 ben.carter@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 ryan.patel@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 mary.jenkins@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 emma.clark@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 james.wilson@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 laura.wood@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 anna.lee@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 david.grant@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 john.harris@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 kevin.shah@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 susan.brooks@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 lisa.chen@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 mike.brown@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 sarah.jones@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 rachel.king@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 tom.wright@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 nina.kumar@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 hannah.scott@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 adam.cole@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 bob.taylor@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 kate.miller@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 sophie.hall@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 alex.foster@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 dev.intern@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 daniel.reed@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 olivia.hunt@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 chris.baker@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 lucy.powell@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 sam.morgan@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 alice.moore@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 peter.davies@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 mark.robinson@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 grace.edwards@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 amy.fisher@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 megan.price@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 luke.barnes@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 jake.hughes@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 frank.butler@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 zoe.murphy@thm.loc
+2026/10/28 19:06:51 >  [+] VALID USERNAME:	 svc.jenkins@thm.loc
+2026/10/28 19:06:52 >  Done! Tested 101 usernames (43 valid) in 0.499 seconds

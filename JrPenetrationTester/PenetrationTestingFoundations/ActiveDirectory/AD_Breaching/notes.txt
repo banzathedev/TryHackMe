@@ -1,0 +1,5 @@
+for lookup git repo for leaked credentials git log -p | grep -i "password\|secret\|token\|key\|credential" 
+
+or use tools like trufflehog git file:///path/to/repo
+
+for jenkins curl http://ci.thm.loc/job/JOB_NAME/lastBuild/consoleText | grep -i "password\|secret\|token\|credential"
