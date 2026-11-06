@@ -1,0 +1,113 @@
+task 02 
+pratical exercises 
+
+AS-Resp roasting 
+
+this technique consists of two fases 
+1- find users that the flag pre auth is disable(UF_DONT_REQUIRE_PREAUTH) 
+2- use GetUserNP.py scritp from impackets to get the hashes. than crack offline with hashcat and an wordlist. 
+
+thm privided us with an users list, so our job starts at begining of fase two, 
+
+as the image shows we ran the py script to get the hases an redirect the output to hashes.txt so we can crack it. 
+
+then we crack it with hashcat
+
+as the image shows that password was cracked.
+
+task 03 
+pratical exercises 
+
+this exercise is based on manual enumeration 
+
+we are going to depende from native tools and resources to discover hosts, and what we can do, to avoid trigger defense sytems 
+this tatic is know as live off the land (lotl) 
+
+we start by connecting via ssh with user and password discovered on preveius task. 
+
+This command will output the current user’s username and domain, if applicable. In other words, if you see a domain name before the slash, you know that you are on a domain account, for example, DomainName\DomainUser. On the other hand, if you see a computer name, this would indicate a local user account, such as ComputerName\LocalUser.
+
+To learn about the account’s groups and privileges, we can use whoami /all. This command will output a detailed page containing the account’s Security Identifier (SID), group memberships, and account privileges.
+
+using the woami /all we can see the privilages that our user have 
+
+privilages like 
+
+SeImpersonatePrivilege: As mentioned already, this privilege allows a process to impersonate the security context of another user after authentication. The “potato” attack revolves around abusing this privilege.
+SeAssignPrimaryTokenPrivilege: This privilege permits a process to assign the primary token of another user to a new process. It is used in conjunction with the SeImpersonatePrivilege privilege.
+SeBackupPrivilege: This privilege lets users read any file on the system, ignoring file permissions. Consequently, attackers can use it to dump sensitive files like the SAM or SYSTEM hive.
+SeRestorePrivilege: This privilege grants the ability to write to any file or registry key without adhering to the set file permissions. Hence, it can be abused to overwrite critical system files or registry settings.
+SeDebugPrivilege: This privilege allows the account to attach a debugger to any process. As a result, the attacker can use this privilege to dump memory from LSASS and extract credentials or even inject malicious code into privileged processes.
+
+coulb vital to planning the next steps-
+
+Let’s start with some basic commands. The following will help you learn about where you have “landed”:
+
+    hostname
+    systeminfo (requires administrator privileges)
+    set
+
+As the name implies, hostname prints the computer’s hostname. In many cases, the hostname can give you a hint about the role of the server. For instance, in many companies, it is not uncommon to see terms such as dc in the names of domain controllers and pc followed by digits as the names of computers joined to the domain.
+
+On the other hand, systeminfo displays a wealth of computer information from the OS version to the installed hotfixes and passes through the domain or workgroup information. This information can be pretty valuable for penetration testers. Hint: You can filter the output using systeminfo | findstr /B "OS" to learn the name and version, while systeminfo | findstr /B "Domain" will return the name of the domain if it is part of an Active Directory.
+
+Finally, we should not forget the information that can be discovered in environment variables. Just run set, and you will be presented with a non-trivial list of variables showing various information from the user’s home directory to the user's domain. You should note that the USERDOMAIN is set to the computer name unless the computer is joined to a domain. If you are on a PowerShell prompt, use Get-ChildItem Env: or simply dir env: instead of set.
+
+
+using the native tool net, can spare user to setup an tool to gather info about the domain, moreorver can blend into normal activites discasing our intentions. 
+
+we are going to user net user /domain to list all the users binded to hte domain, while user net user only list local accounts
+
+this listings can take some time speacially if the company size is big, but can lead to discover good targets such as BackupAdmin
+
+using the command net user <username> /domain can give as more information about an accont, whether is beging used or not, password info, group membership an more.
+the image bellow shows an example of. 
+
+now we know the users, an can have more information on than as we pleased, so may be an good idea to list all domain groups. net group /domain
+
+the image bellow show us the groups 
+
+
+The Domain Controllers and Domain Computers contain machine accounts. We can discover the names of the computers on the domain by using net group <Group Name> / domain. For example, the net group "Domain Computers" /domain will return all the computer accounts that exist in the domain. Note that machine accounts end with $, for example DESKTOP-ACCT05$.
+You can use the same syntax to list the members of any user group as well. For example, net group "Domain Admins" /domain will show you all the accounts that belong to the Domain Admins group.
+
+If you want to check the local groups, you can list all the local groups using net localgroup
+
+Furthermore, if you want to know the members of a specific local group, such as Administrators, you need to issue net localgroup Administrators
+
+TO DISCOVER OTHER USERS logges on the machine query user, or quser
+
+Noticing an account with administrator privileges logged on to a machine is a big find. Generally speaking, there is a high chance that we can find their credentials or tokens in memory. Consequently, an attacker would aim to dump LSASS to get their password hash or Kerberos ticket, for instance. Furthermore, the attacker can impersonate their session token provided their account has SeImpersonatePrivilege. In brief, a logged-on admin is a clue that attempting to steal a token or launch Mimikatz can lead to a great reward.
+
+
+There are other useful commands to gather information about what’s happening on the system activity and who is using it. Note that the following two example commands require elevated privileges to run:
+
+    tasklist displays a list of currently running processes. You can use tasklist /V for verbose task information.
+    net session lists the SMB sessions between the computer and other computers on the network. It requires administrator privileges to run.
+
+
+Search Using WMIC
+
+We can use WMIC to gather information about Windows services, including the account for each service. If you run wmic service get, you will get plenty of information about each service; each service’s information is shown in one very long row. You might want to display specific rows, such as the service name and the associated account, using wmic service get Name,StartName as shown below. Please note that we need administrator privileges to run it.
+
+
+After booting, servers and systems are locked until a user manually enters the login credentials. In the case of a misconfigured or testing system, the credentials for auto-logon might be saved. If this is the case, they can be found under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon. You might want to check DefaultPassword if saved and AutoAdminLogon if set to 1. You can search for the value you want using reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v keyword the following:
+Another interesting Registry location is HKLM\Security\Cache; however, this one requires administrator access; moreover, the credentials will be hashed and require cracking.
+
+
+u can run reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall to quickly get a list of installed applications. This list can be handy, especially if you find a server with known default credentials. In this approach, we assume that you have command-line access and don’t have access to the Control Panel.
+
+There are many other things that you might discover from the register. We end the registry section with the following command to search the registry for a specific keyword. For example, to search the registry for password, you can use:
+
+reg query HKLM /f "password" /t REG_SZ /s
+
+
+One more thing to consider before finishing this part is the scheduled tasks. You can list all scheduled tasks using schtasks /query. On a side note, you can use schtasks to create a new scheduled task using /create or run an existing scheduled task with /run.
+
+
+task 04
+pratical exercises 
+
+blodhound
+
+we are going to user bloodhound python to gather information about the ad, thant i proceed to the web community application to look the resoults. 
