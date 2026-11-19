@@ -1,0 +1,11 @@
+SMB                      10.114.151.237  445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:ctf.local) (signing:True) (SMBv1:False) (Null Auth:True) (DC:True)
+SMB                      10.114.151.237  445    DC01             [+] ctf.local\guest: 
+SMB                      10.114.151.237  445    DC01             [*] Enumerated shares
+SMB                      10.114.151.237  445    DC01             Share           Permissions            Remark
+SMB                      10.114.151.237  445    DC01             -----           -----------            ------
+SMB                      10.114.151.237  445    DC01             ADMIN$                                 Remote Admin
+SMB                      10.114.151.237  445    DC01             C$                                     Default share
+SMB                      10.114.151.237  445    DC01             IPC$            READ                   Remote IPC
+SMB                      10.114.151.237  445    DC01             IT-Shared       READ,WRITE             IT Department Shared Resources
+SMB                      10.114.151.237  445    DC01             NETLOGON                               Logon server share 
+SMB                      10.114.151.237  445    DC01             SYSVOL                                 Logon server share 

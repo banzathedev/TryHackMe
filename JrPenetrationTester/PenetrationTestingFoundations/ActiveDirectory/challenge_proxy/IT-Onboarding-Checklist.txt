@@ -1,0 +1,22 @@
+﻿IT Department Onboarding Checklist
+====================================
+Welcome to the team!
+
+1. Get VPN access from sysadmin
+2. Request AD account
+3. Install tools (see software list on intranet)
+4. Review security policies
+
+Automated Services
+------------------
+  File Scanner (svc.scanner)
+    Runs every 2 minutes. Enumerates IT-Shared for new files to process.
+    Uses Shell enumeration to inspect file metadata and icons.
+    Contact sysadmin if files are not being processed.
+
+  Database Backup (svc.mssql)
+    Handles nightly MSSQL backups. Member of Backup Operators.
+    Password rotated quarterly -- do not store locally.
+
+Questions? Email helpdesk@ctf.local
+

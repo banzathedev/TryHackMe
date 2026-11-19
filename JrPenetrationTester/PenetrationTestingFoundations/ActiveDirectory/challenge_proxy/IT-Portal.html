@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CTF Corp – IT Portal</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Segoe UI, Arial, sans-serif; background: #eef1f5; color: #333; }
+
+    header {
+      background: #1b3a5c;
+      color: #fff;
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .brand { font-size: 1.05rem; font-weight: 600; letter-spacing: .5px; }
+    header .user  { font-size: .85rem; opacity: .75; }
+
+    nav {
+      background: #254e7a;
+      padding: 0 32px;
+      display: flex;
+      gap: 4px;
+    }
+    nav a {
+      color: #c8d8ea;
+      text-decoration: none;
+      padding: 10px 14px;
+      font-size: .88rem;
+      border-bottom: 3px solid transparent;
+    }
+    nav a.active { color: #fff; border-bottom-color: #4fc3f7; }
+
+    .page { max-width: 1060px; margin: 28px auto; padding: 0 20px; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .stat {
+      background: #fff;
+      border-radius: 5px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+    .stat .label { font-size: .78rem; color: #888; text-transform: uppercase; letter-spacing: .5px; }
+    .stat .value { font-size: 1.7rem; font-weight: 700; color: #1b3a5c; margin-top: 4px; }
+    .stat .sub   { font-size: .8rem; color: #aaa; margin-top: 2px; }
+
+    .card {
+      background: #fff;
+      border-radius: 5px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: .95rem; color: #1b3a5c; margin-bottom: 14px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    th { text-align: left; padding: 7px 10px; color: #666; font-weight: 600; border-bottom: 2px solid #eef1f5; }
+    td { padding: 8px 10px; border-bottom: 1px solid #f3f4f6; }
+    tr:last-child td { border-bottom: none; }
+
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+    .green  { background: #43a047; }
+    .yellow { background: #fb8c00; }
+    .red    { background: #e53935; }
+
+    footer { text-align: center; font-size: .78rem; color: #aaa; padding: 24px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="brand">&#127970; CTF Corp &mdash; IT Portal</span>
+  <span class="user">Logged in as: svc.scanner</span>
+</header>
+
+<nav>
+  <a href="#" class="active">Dashboard</a>
+  <a href="#">Assets</a>
+  <a href="#">Tickets</a>
+  <a href="#">Users</a>
+  <a href="#">Reports</a>
+</nav>
+
+<div class="page">
+
+  <div class="grid">
+    <div class="stat">
+      <div class="label">Managed Hosts</div>
+      <div class="value">14</div>
+      <div class="sub">3 pending updates</div>
+    </div>
+    <div class="stat">
+      <div class="label">Open Tickets</div>
+      <div class="value">7</div>
+      <div class="sub">2 high priority</div>
+    </div>
+    <div class="stat">
+      <div class="label">Last Scan</div>
+      <div class="value">&#10003;</div>
+      <div class="sub">Today 08:42</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Service Status</h3>
+    <table>
+      <tr><th>Service</th><th>Host</th><th>Status</th><th>Uptime</th></tr>
+      <tr>
+        <td>Active Directory</td>
+        <td>DC01.ctf.local</td>
+        <td><span class="dot green"></span>Online</td>
+        <td>32 d</td>
+      </tr>
+      <tr>
+        <td>DNS</td>
+        <td>DC01.ctf.local</td>
+        <td><span class="dot green"></span>Online</td>
+        <td>32 d</td>
+      </tr>
+      <tr>
+        <td>File Share (IT-Shared)</td>
+        <td>DC01.ctf.local</td>
+        <td><span class="dot green"></span>Online</td>
+        <td>32 d</td>
+      </tr>
+      <tr>
+        <td>Backup Agent</td>
+        <td>SRV01.ctf.local</td>
+        <td><span class="dot yellow"></span>Degraded</td>
+        <td>11 d</td>
+      </tr>
+      <tr>
+        <td>Monitoring</td>
+        <td>SRV02.ctf.local</td>
+        <td><span class="dot red"></span>Offline</td>
+        <td>&#8212;</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Recent Tickets</h3>
+    <table>
+      <tr><th>#</th><th>Subject</th><th>Assigned</th><th>Priority</th></tr>
+      <tr><td>1042</td><td>Printer offline – 2nd floor</td><td>j.smith</td><td>Low</td></tr>
+      <tr><td>1041</td><td>VPN access request – new hire</td><td>svc.helpdesk</td><td>Normal</td></tr>
+      <tr><td>1039</td><td>Password reset – m.jones</td><td>svc.helpdesk</td><td>Normal</td></tr>
+      <tr><td>1037</td><td>Backup job failed on SRV01</td><td>Unassigned</td><td><strong>High</strong></td></tr>
+    </table>
+  </div>
+
+</div>
+
+<footer>CTF Corp &copy; 2026 &mdash; IT Operations &mdash; Internal use only</footer>
+
+</body>
+</html>
