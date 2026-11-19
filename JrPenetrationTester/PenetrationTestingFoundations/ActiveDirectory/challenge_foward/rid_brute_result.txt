@@ -1,0 +1,8 @@
+SMB                      10.112.172.140  445    DC01             500: CTF\Administrator (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             501: CTF\Guest (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             502: CTF\krbtgt (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             1008: CTF\DC01$ (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             1609: CTF\j.smith (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             1610: CTF\t.jones (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             1611: CTF\r.williams (SidTypeUser)
+SMB                      10.112.172.140  445    DC01             1612: CTF\svc.helpdesk (SidTypeUser)
